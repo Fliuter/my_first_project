@@ -1,0 +1,15 @@
+:root {
+  --color-dark: #101820;
+  --color-dark-soft: #1b2933;
+  --color-accent: #e94f2e;
+  --color-accent-light: #ff7655;
+  --color-bg: #f3f4f2;
+  --color-white: #ffffff;
+  --color-text: #18232b;
+  --color-muted: #89939a;
+  --font-main: "Manrope", Arial, sans-serif;
+  --container-width: 1180px;
+  --radius: 4px;
+  --section-space: 112px;
+  --transition: 0.25s ease;
+}

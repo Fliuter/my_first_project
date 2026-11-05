@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Автомобильный мир — обзоры, подбор и советы автомобилистам.">
+  <title>DRIVE — автомобильный мир</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="#" aria-label="DRIVE — на главную"><span class="logo__mark">D</span>RIVE<span class="logo__dot">.</span></a>
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#about">О проекте</a>
+        <a href="#benefits">Преимущества</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <a class="header__button" href="#benefits">Узнать больше <span>↗</span></a>
+      <button class="menu-button" aria-label="Открыть меню" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="about">
+      <div class="container hero__content">
+        <p class="eyebrow"><span></span> ВСЁ О МИРЕ АВТОМОБИЛЕЙ</p>
+        <h1>ТВОЯ ДОРОГА.<br><span>ТВОИ ПРАВИЛА.</span></h1>
+        <p class="hero__text">Обзоры автомобилей, полезные советы и вдохновение для тех, кто живёт движением.</p>
+        <a class="button button--primary" href="#benefits">Открыть для себя <span>→</span></a>
+        <div class="hero__meta"><strong>01</strong><span> / 03</span><i></i><small>DRIVE YOUR PASSION</small></div>
+      </div>
+      <div class="hero__shade"></div>
+      <div class="hero__image" role="img" aria-label="Спортивный автомобиль на дороге"></div>
+    </section>
+
+    <section class="intro section">
+      <div class="container intro__grid">
+        <p class="eyebrow eyebrow--dark">01 / О ПРОЕКТЕ</p>
+        <div>
+          <h2>БОЛЬШЕ, ЧЕМ<br><span>ПРОСТО АВТО.</span></h2>
+          <p class="intro__copy">DRIVE — пространство для людей, которым интересна автомобильная культура. Здесь можно узнавать новое, сравнивать модели и находить идеи для следующих поездок.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits section" id="benefits">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">02 / ПОЧЕМУ DRIVE</p><h2>НАШИ <span>ПРЕИМУЩЕСТВА</span></h2></div>
+          <p>Всё важное об автомобилях<br>в одном месте.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card__number">01</div><div class="card__icon">↗</div>
+            <h3>Честные обзоры</h3>
+            <p>Разбираем характеристики, особенности и поведение автомобилей без лишней воды.</p>
+          </article>
+          <article class="card card--accent">
+            <div class="card__number">02</div><div class="card__icon">⌁</div>
+            <h3>Полезные советы</h3>
+            <p>Делимся практическими рекомендациями по выбору, обслуживанию и эксплуатации авто.</p>
+          </article>
+          <article class="card">
+            <div class="card__number">03</div><div class="card__icon">◈</div>
+            <h3>Мир авто-культуры</h3>
+            <p>Следим за новинками, интересными проектами и всем, что связано с автомобильным миром.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="callout">
+      <div class="container callout__inner">
+        <p class="eyebrow">ТВОЁ СЛЕДУЮЩЕЕ ПУТЕШЕСТВИЕ НАЧИНАЕТСЯ ЗДЕСЬ</p>
+        <h2>ДВИЖЕНИЕ — ЭТО<br><span>СТИЛЬ ЖИЗНИ.</span></h2>
+        <a class="button button--light" href="mailto:drive@example.com">Связаться с нами <span>→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacts">
+    <div class="container footer__top">
+      <a class="logo logo--footer" href="#"><span class="logo__mark">D</span>RIVE<span class="logo__dot">.</span></a>
+      <p>Автомобильный мир<br>без границ.</p>
+      <div class="footer__links"><a href="mailto:drive@example.com">drive@example.com</a><a href="#about">Наверх ↑</a></div>
+    </div>
+    <div class="container footer__bottom"><span>© 2026 DRIVE. Учебный проект.</span><span>Сделано с интересом к автомобилям.</span></div>
+  </footer>
+  <script>
+    const menuButton = document.querySelector('.menu-button');
+    const nav = document.querySelector('.nav');
+    menuButton.addEventListener('click', () => {
+      const opened = nav.classList.toggle('nav--open');
+      menuButton.setAttribute('aria-expanded', String(opened));
+    });
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('nav--open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }));
+  </script>
+</body>
+</html>
