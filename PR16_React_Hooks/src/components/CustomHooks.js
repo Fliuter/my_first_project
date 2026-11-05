@@ -1,0 +1,21 @@
+import React, { useCallback, useEffect, useState } from 'react';
+
+export function useLocalStorage(key, initialValue) {
+  const [value, setValue] = useState(() => { try { const item = window.localStorage.getItem(key); return item !== null ? JSON.parse(item) : initialValue; } catch (error) { console.error(`Ошибка чтения localStorage (${key})`, error); return initialValue; } });
+  useEffect(() => { try { window.localStorage.setItem(key, JSON.stringify(value)); } catch (error) { console.error(`Ошибка записи localStorage (${key})`, error); } }, [key, value]);
+  return [value, setValue];
+}
+export function useFetch(url) {
+  const [data, setData] = useState(null); const [loading, setLoading] = useState(Boolean(url)); const [error, setError] = useState(null);
+  useEffect(() => { if (!url) { setLoading(false); return undefined; } const controller = new AbortController(); const load = async () => { setLoading(true); setError(null); try { const response = await fetch(url, { signal: controller.signal }); if (!response.ok) throw new Error(`HTTP ${response.status}`); setData(await response.json()); } catch (err) { if (err.name !== 'AbortError') setError(err.message); } finally { if (!controller.signal.aborted) setLoading(false); } }; load(); return () => controller.abort(); }, [url]);
+  return { data, loading, error };
+}
+export function useToggle(initialValue = false) { const [value, setValue] = useState(initialValue); const toggle = useCallback(() => setValue(current => !current), []); return [value, toggle]; }
+export function useDebounce(value, delay) { const [debouncedValue, setDebouncedValue] = useState(value); useEffect(() => { const id = setTimeout(() => setDebouncedValue(value), delay); return () => clearTimeout(id); }, [value, delay]); return debouncedValue; }
+export function useWindowSize() { const [size, setSize] = useState({ width: window.innerWidth, height: window.innerHeight }); useEffect(() => { const update = () => setSize({ width: window.innerWidth, height: window.innerHeight }); window.addEventListener('resize', update); return () => window.removeEventListener('resize', update); }, []); return size; }
+function LocalStorageDemo() { const [name, setName] = useLocalStorage('pr16-username', ''); return <div className="demo"><h3>useLocalStorage</h3><input value={name} onChange={e => setName(e.target.value)} placeholder="Введите имя — сохранится в браузере" /><p>Текущее имя: {name || '—'}</p><button onClick={() => setName('')}>Очистить</button></div>; }
+function FetchDemo() { const { data, loading, error } = useFetch('https://jsonplaceholder.typicode.com/users'); return <div className="demo"><h3>useFetch</h3>{loading && <p>Загрузка пользователей...</p>}{error && <p className="error">Ошибка: {error}</p>}{data && <><p className="success">Загружено пользователей: {data.length}</p><ul>{data.slice(0, 3).map(user => <li key={user.id}>{user.name} ({user.email})</li>)}</ul></>}</div>; }
+function ToggleDemo() { const [visible, toggleVisible] = useToggle(false); return <div className="demo"><h3>useToggle</h3><button onClick={toggleVisible}>{visible ? 'Скрыть' : 'Показать'}</button>{visible && <p>Секретный контент показан!</p>}</div>; }
+function DebounceDemo() { const [search, setSearch] = useState(''); const debouncedSearch = useDebounce(search, 500); const results = debouncedSearch ? [`Результат 1 для «${debouncedSearch}»`, `Результат 2 для «${debouncedSearch}»`, `Результат 3 для «${debouncedSearch}»`] : []; return <div className="demo"><h3>useDebounce</h3><input value={search} onChange={e => setSearch(e.target.value)} placeholder="Поиск (задержка 500 мс)" /><p>Текущий запрос: {search}</p><p>Запрос после задержки: {debouncedSearch}</p>{results.length > 0 && <ul>{results.map((item, i) => <li key={i}>{item}</li>)}</ul>}</div>; }
+function WindowSizeDemo() { const { width, height } = useWindowSize(); return <div className="demo"><h3>useWindowSize</h3><p>Ширина окна: {width}px · Высота окна: {height}px</p></div>; }
+export default function CustomHooks() { return <section className="section"><h2>Кастомные хуки</h2><p className="muted">Повторно используемые функции для работы с состоянием, запросами и событиями.</p><LocalStorageDemo /><FetchDemo /><ToggleDemo /><DebounceDemo /><WindowSizeDemo /></section>; }

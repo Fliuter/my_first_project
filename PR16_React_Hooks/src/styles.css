@@ -1,0 +1,18 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #f3f6fb; color: #172033; font-family: Arial, sans-serif; }
+button { border: 0; border-radius: 7px; padding: 9px 13px; margin: 4px; background: #2563eb; color: white; cursor: pointer; }
+button:hover { background: #1d4ed8; }
+input { padding: 9px 10px; margin: 5px; border: 1px solid #cbd5e1; border-radius: 7px; max-width: 100%; }
+.page { max-width: 1100px; margin: 0 auto; padding: 24px; }
+header { text-align: center; margin-bottom: 24px; }
+header h1 { color: #1d4ed8; }
+.section { background: white; border: 1px solid #dbe3ef; border-radius: 12px; padding: 20px; margin: 16px 0; box-shadow: 0 3px 12px #0f172a0a; }
+.section h2 { margin-top: 0; color: #1e40af; }
+.demo { border: 1px solid #dbe3ef; border-radius: 9px; padding: 14px; margin: 12px 0; }
+.row { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.muted { color: #64748b; }
+.error { color: #b91c1c; }
+.success { color: #15803d; }
+.dark { background: #1e293b; color: #f8fafc; border-color: #475569; }
+.dark h2 { color: #93c5fd; }
+li { margin: 5px 0; }
