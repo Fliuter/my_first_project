@@ -1,0 +1,40 @@
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #172033;
+    line-height: 1.6;
+}
+.container { width: min(960px, 92%); margin: 40px auto; }
+header {
+    padding: 34px;
+    border-radius: 18px;
+    color: white;
+    background: linear-gradient(135deg, #172554, #2563eb);
+    margin-bottom: 22px;
+}
+h1 { margin: 4px 0 10px; font-size: clamp(27px, 5vw, 42px); }
+.eyebrow { text-transform: uppercase; letter-spacing: 2px; opacity: .8; }
+.panel {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, .06);
+}
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; }
+.grid article { background: #f8fafc; padding: 16px; border-radius: 12px; }
+h2 { margin-top: 0; }
+button {
+    border: 0; border-radius: 9px; padding: 12px 20px;
+    color: white; background: #2563eb; font-size: 16px; cursor: pointer;
+}
+button:hover { background: #1d4ed8; }
+#results { margin-top: 18px; }
+#results ul { padding-left: 22px; }
+#results li { margin: 8px 0; }
+.passed { color: #15803d; }
+.failed { color: #dc2626; }
+code { background: #eaf0ff; padding: 2px 5px; border-radius: 4px; }
+footer { text-align: center; color: #64748b; padding: 12px; }
