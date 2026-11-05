@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ПР №13 — Асинхронные операции JavaScript</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow">Практическая работа №13</p>
+      <h1>Асинхронные операции JavaScript</h1>
+      <p>Промисы, async/await, API, таймеры, обработка ошибок и параллельные запросы.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>1. Основы промисов</h2>
+      <div class="buttons">
+        <button id="basic-promise">Выполнить промис</button>
+        <button id="promise-chain">Цепочка промисов</button>
+        <button id="promise-error" class="secondary">Проверить ошибку</button>
+      </div>
+      <pre id="promise-output" class="output" aria-live="polite">Результат появится здесь.</pre>
+    </section>
+
+    <section class="panel">
+      <h2>2. Async / Await</h2>
+      <div class="buttons">
+        <button id="basic-async">Запустить async/await</button>
+        <button id="async-error" class="secondary">Ошибка с try/catch</button>
+        <button id="async-parallel">Три параллельные операции</button>
+      </div>
+      <pre id="async-output" class="output" aria-live="polite">Результат появится здесь.</pre>
+    </section>
+
+    <section class="panel">
+      <h2>3. Работа с API</h2>
+      <div class="buttons">
+        <button id="fetch-users">Загрузить пользователей</button>
+        <button id="fetch-post">Отправить POST</button>
+        <button id="fetch-error" class="secondary">Проверить ошибку API</button>
+      </div>
+      <div id="api-data" class="user-grid"></div>
+      <pre id="api-output" class="output" aria-live="polite">Результат запроса появится здесь.</pre>
+    </section>
+
+    <section class="panel">
+      <h2>4. Асинхронные таймеры</h2>
+      <div class="buttons">
+        <button id="start-interval">Запустить счётчик</button>
+        <button id="stop-interval" class="secondary">Остановить счётчик</button>
+        <button id="delay-promise">Проверить задержку</button>
+      </div>
+      <pre id="interval-output" class="output">Счётчик: 0</pre>
+      <pre id="timer-output" class="output">Ожидание запуска.</pre>
+    </section>
+
+    <section class="panel">
+      <h2>5. Обработка ошибок</h2>
+      <div class="buttons">
+        <button id="try-catch">Вложенный try/catch</button>
+        <button id="multiple-errors">Несколько результатов</button>
+        <button id="retry-pattern">Повторные попытки</button>
+      </div>
+      <pre id="error-output" class="output" aria-live="polite">Результат появится здесь.</pre>
+    </section>
+
+    <section class="panel">
+      <h2>6. Параллельные операции</h2>
+      <div class="buttons">
+        <button id="promise-all">Promise.all</button>
+        <button id="promise-race">Promise.race</button>
+        <button id="promise-allSettled">Promise.allSettled</button>
+      </div>
+      <pre id="parallel-output" class="output" aria-live="polite">Результат появится здесь.</pre>
+    </section>
+
+    <section class="panel">
+      <h2>7. Реальные сценарии и оптимизация</h2>
+      <div class="buttons">
+        <button id="sequential-requests">Последовательные API-запросы</button>
+        <button id="upload-simulation">Симуляция загрузки файла</button>
+        <button id="cache-requests">Проверить кэш запросов</button>
+      </div>
+      <div class="progress-track"><div id="progress-bar" class="progress-bar"></div></div>
+      <pre id="scenario-output" class="output" aria-live="polite">Результат появится здесь.</pre>
+    </section>
+
+    <section class="panel">
+      <h2>Проверка тестов</h2>
+      <button id="run-tests">Запустить тесты</button>
+      <pre id="test-output" class="output" aria-live="polite">Нажмите кнопку, чтобы выполнить тесты.</pre>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">ПР №13 · JavaScript: асинхронные операции</div>
+  </footer>
+
+  <script src="async-tasks.js"></script>
+  <script src="async-tests.js"></script>
+</body>
+</html>
