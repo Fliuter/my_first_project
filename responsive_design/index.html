@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Учебный пример адаптивной вёрстки сайта об автомобилях.">
+    <title>Автомобильный мир — адаптивная вёрстка</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="#home">Автомобильный мир</a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+                Меню ☰
+            </button>
+            <nav class="site-nav" id="main-nav" aria-label="Основная навигация">
+                <ul class="nav-list">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#models">Модели</a></li>
+                    <li><a href="#about">О проекте</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="home">
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Автомобили, которые вдохновляют</h1>
+                <p>Учебный сайт демонстрирует адаптивную вёрстку: элементы страницы удобно располагаются на больших и маленьких экранах.</p>
+                <a class="button" href="#models">Посмотреть модели</a>
+            </div>
+        </section>
+
+        <section class="section" id="models">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Популярные модели</h2>
+                    <p>Сетка карточек автоматически меняет количество колонок в зависимости от ширины экрана.</p>
+                </div>
+                <div class="card-grid">
+                    <article class="card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/2006-%2707_Honda_Accord_Sedan.JPG" alt="Седан Honda Accord">
+                        <div class="card-content">
+                            <h3>Honda Accord</h3>
+                            <p>Комфортный седан с динамичным характером и узнаваемым дизайном.</p>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/BMW-5series-E60.jpg" alt="Автомобиль BMW пятой серии">
+                        <div class="card-content">
+                            <h3>BMW 5 Series</h3>
+                            <p>Сочетание управляемости, комфорта и технологий.</p>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/%2706_Mercedes-Benz_E-Class_Sedan.jpg" alt="Седан Mercedes-Benz E-Class">
+                        <div class="card-content">
+                            <h3>Mercedes-Benz E-Class</h3>
+                            <p>Представительский автомобиль с классическим стилем.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="container">
+                <div class="info-panel">
+                    <div>
+                        <h2>О проекте</h2>
+                        <p>Страница создана для практической работы по адаптивной вёрстке. Используются семантические HTML-элементы, CSS Grid, Flexbox, относительные единицы измерения, функция clamp() и медиазапросы.</p>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/MHV_Toyota_Camry_XV40_2007_01.jpg" alt="Автомобиль Toyota Camry">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2026 Автомобильный мир. Учебный проект.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuButton = document.querySelector(".menu-toggle");
+        const navigation = document.querySelector(".site-nav");
+
+        menuButton.addEventListener("click", () => {
+            const isOpen = navigation.classList.toggle("is-open");
+            menuButton.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        navigation.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                navigation.classList.remove("is-open");
+                menuButton.setAttribute("aria-expanded", "false");
+            });
+        });
+    </script>
+</body>
+</html>
