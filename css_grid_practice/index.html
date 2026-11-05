@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Layout</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <h1>CSS Grid в действии</h1>
+            <p>Практическая работа №5</p>
+        </header>
+
+        <nav class="navigation">
+            <h2>Навигация</h2>
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">О проекте</a></li>
+                <li><a href="#gallery">Галерея</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content" id="home">
+            <article class="featured" id="about">
+                <h2>Что такое CSS Grid?</h2>
+                <p>CSS Grid — технология CSS для создания двумерных макетов. Она позволяет размещать элементы одновременно по строкам и столбцам.</p>
+            </article>
+
+            <section class="gallery" id="gallery">
+                <h2 class="gallery-title">Галерея автомобилей</h2>
+                <div class="gallery-item">Honda Accord</div>
+                <div class="gallery-item">BMW 5 Series</div>
+                <div class="gallery-item">Mercedes-Benz</div>
+                <div class="gallery-item">Toyota Camry</div>
+                <div class="gallery-item">Ford Focus</div>
+                <div class="gallery-item">Lexus GS</div>
+            </section>
+        </main>
+
+        <aside class="sidebar">
+            <h2>Дополнительно</h2>
+            <p>Grid помогает создавать адаптивные сетки, карточки и сложные структуры страниц.</p>
+            <p><strong>Основные свойства:</strong> display: grid, grid-template-columns, gap, grid-area.</p>
+        </aside>
+
+        <footer class="footer" id="contacts">
+            <div class="footer-section"><h3>Контакты</h3><p>example@mail.ru</p></div>
+            <div class="footer-section"><h3>Соцсети</h3><p>ВКонтакте</p></div>
+            <div class="footer-section"><h3>Информация</h3><p>О проекте</p></div>
+            <div class="footer-section"><h3>Поддержка</h3><p>Помощь пользователям</p></div>
+        </footer>
+    </div>
+</body>
+</html>

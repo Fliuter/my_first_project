@@ -1,0 +1,187 @@
+/* Основная сетка страницы с именованными областями */
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "nav main"
+        "sidebar main"
+        "footer footer";
+    grid-template-columns: 240px minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr auto;
+    gap: 16px;
+    min-height: 100vh;
+    padding: 16px;
+    background: #eef2f7;
+}
+
+.header {
+    grid-area: header;
+    padding: 28px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #315b96, #6d91c5);
+    border-radius: 10px;
+}
+
+.header h1 {
+    font-size: 2rem;
+    margin-bottom: 6px;
+}
+
+.navigation {
+    grid-area: nav;
+    padding: 20px;
+    color: white;
+    background: #263b56;
+    border-radius: 10px;
+}
+
+.navigation h2,
+.sidebar h2 {
+    margin-bottom: 12px;
+}
+
+.navigation ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+}
+
+.navigation a {
+    display: block;
+    padding: 8px 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.navigation a:hover {
+    background: #42658e;
+}
+
+.main-content {
+    grid-area: main;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+    min-width: 0;
+}
+
+.featured {
+    padding: 24px;
+    color: #263449;
+    background: white;
+    border-left: 5px solid #4778b8;
+    border-radius: 10px;
+}
+
+.featured h2 {
+    margin-bottom: 10px;
+}
+
+/* Вложенная адаптивная Grid-сетка */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    align-content: start;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+}
+
+.gallery-title {
+    grid-column: 1 / -1;
+    margin-bottom: 4px;
+}
+
+.gallery-item {
+    display: grid;
+    place-items: center;
+    min-height: 145px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(135deg, #3d6eaa, #8aa9d1);
+    border-radius: 8px;
+}
+
+.gallery-item:nth-of-type(3) {
+    grid-column: span 2;
+    background: linear-gradient(135deg, #8a5b38, #c99a70);
+}
+
+.sidebar {
+    grid-area: sidebar;
+    align-self: start;
+    padding: 20px;
+    background: #dce7f4;
+    border-radius: 10px;
+}
+
+.sidebar p + p {
+    margin-top: 12px;
+}
+
+/* Подвал также организован с помощью Grid */
+.footer {
+    grid-area: footer;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    padding: 20px;
+    color: white;
+    background: #263b56;
+    border-radius: 10px;
+}
+
+.footer-section {
+    padding: 14px;
+    text-align: center;
+    background: #344f70;
+    border-radius: 7px;
+}
+
+/* Адаптация для планшетов и телефонов */
+@media (max-width: 800px) {
+    .grid-container {
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "sidebar"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .navigation ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .footer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        padding: 12px;
+    }
+
+    .gallery-item:nth-of-type(3) {
+        grid-column: auto;
+    }
+
+    .footer {
+        grid-template-columns: 1fr;
+    }
+}
