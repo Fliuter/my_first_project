@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Практическая работа №11 — DOM</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="dom-tasks.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Практическая работа №11</h1>
+    <p>JavaScript: манипуляции DOM-деревом</p>
+    <button id="random-header">Сменить цвет шапки</button>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>1. Создание элементов</h2>
+      <div class="controls">
+        <button id="create-card">Создать карточку</button>
+        <button id="create-list">Создать список</button>
+      </div>
+      <div id="target1" class="result-area"></div>
+    </section>
+
+    <section class="panel">
+      <h2>2. Навигация по DOM</h2>
+      <div id="parent-element" class="parent-box">
+        <div class="child">Первый элемент</div>
+        <div class="child special">Особый элемент</div>
+        <div class="child">Третий элемент</div>
+      </div>
+      <div class="controls">
+        <button id="count-children">Посчитать дочерние элементы</button>
+        <button id="find-special">Найти особый элемент</button>
+        <button id="parent-background">Цвет родителя</button>
+      </div>
+      <p id="dom-info" class="info"></p>
+    </section>
+
+    <section class="panel">
+      <h2>3. Классы и стили</h2>
+      <div id="style-target" class="style-target">Измени мой стиль</div>
+      <div class="controls">
+        <button id="toggle-style">Переключить стиль</button>
+        <button id="animate-element">Анимация</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>4. Обработка событий</h2>
+      <button id="click-btn">Нажми меня</button>
+      <p>Количество нажатий: <strong id="click-counter">0</strong></p>
+      <label for="text-input">Введи текст:</label>
+      <input id="text-input" type="text" placeholder="Начни печатать">
+      <p id="input-display" class="info">Здесь появится введённый текст</p>
+      <p class="muted">Нажатия клавиш также выводятся в консоль браузера (F12).</p>
+    </section>
+
+    <section class="panel">
+      <h2>5. Динамический список</h2>
+      <div class="controls">
+        <input id="item-input" type="text" placeholder="Новый пункт списка">
+        <button id="add-item">Добавить</button>
+        <button id="clear-list" class="secondary">Очистить список</button>
+      </div>
+      <ul id="dynamic-list" class="dynamic-list"></ul>
+    </section>
+
+    <section class="panel">
+      <h2>6. Форма и валидация</h2>
+      <form id="user-form" novalidate>
+        <label for="user-name">Имя</label>
+        <input id="user-name" name="name" type="text" placeholder="Например, Иван">
+        <label for="user-email">Email</label>
+        <input id="user-email" name="email" type="email" placeholder="name@example.com">
+        <label for="user-age">Возраст</label>
+        <input id="user-age" name="age" type="number" min="1" max="120" placeholder="18">
+        <button type="submit">Отправить</button>
+      </form>
+      <div id="form-output" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Практическая работа №11 • Работа с DOM на JavaScript</p>
+  </footer>
+</body>
+</html>

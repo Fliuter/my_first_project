@@ -1,0 +1,63 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: Arial, sans-serif; color: #202633;
+  background: #f2f5f9; line-height: 1.5;
+}
+.site-header {
+  padding: 32px 20px; text-align: center; color: white;
+  background: #263b60; transition: background-color .3s;
+}
+.site-header h1 { margin: 0 0 8px; }
+.site-header p { margin: 0 0 18px; }
+.container { width: min(1000px, 92%); margin: 28px auto; }
+.panel {
+  background: white; margin-bottom: 20px; padding: 22px;
+  border-radius: 12px; box-shadow: 0 3px 14px #17243a12;
+}
+h2 { margin-top: 0; color: #263b60; }
+button {
+  border: 0; border-radius: 7px; padding: 10px 15px;
+  background: #315fa8; color: white; cursor: pointer;
+}
+button:hover { filter: brightness(.92); }
+button.secondary { background: #697586; }
+input {
+  padding: 10px 12px; border: 1px solid #cbd3df;
+  border-radius: 7px; font: inherit; max-width: 100%;
+}
+.controls { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0; }
+.result-area { display: flex; flex-wrap: wrap; gap: 12px; }
+.card {
+  padding: 14px; border: 1px solid #d8e0ec; border-radius: 9px;
+  background: #f8faff; min-width: 180px; max-width: 300px;
+}
+.card h4 { margin: 0 0 8px; }
+.card p { margin: 0; }
+.parent-box {
+  display: flex; flex-wrap: wrap; gap: 10px; padding: 15px;
+  background: #e8edf5; border-radius: 8px;
+}
+.child { padding: 12px; background: white; border-radius: 6px; }
+.special { border: 2px solid #e39b32; }
+.info { color: #315fa8; overflow-wrap: anywhere; }
+.style-target {
+  width: fit-content; padding: 18px 25px; margin: 12px 0;
+  background: #e8edf5; border-radius: 8px;
+  transition: all .45s ease;
+}
+.active-style { background: #315fa8; color: white; transform: translateX(12px); }
+.animated { transform: scale(1.12); opacity: .55; }
+.dynamic-list { padding-left: 24px; }
+.list-item { margin: 8px 0; }
+.list-item button { margin-left: 10px; padding: 5px 9px; background: #b43e48; }
+form { display: grid; gap: 9px; max-width: 420px; }
+form button { margin-top: 8px; }
+.error-list { color: #b42332; background: #fff0f1; padding: 12px 30px; border-radius: 8px; }
+.success-message { padding: 14px; background: #e9f8ee; border: 1px solid #9bd2aa; border-radius: 8px; }
+.muted { color: #687386; font-size: .9rem; }
+.site-footer { text-align: center; padding: 20px; color: #687386; }
+@media (max-width: 600px) {
+  .panel { padding: 16px; }
+  .controls { flex-direction: column; align-items: stretch; }
+  .controls button, .controls input { width: 100%; }
+}
