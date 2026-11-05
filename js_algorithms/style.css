@@ -1,0 +1,16 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; background: #f3f5f8; color: #202733; }
+header { background: #172b4d; color: white; text-align: center; padding: 28px 16px; }
+header h1 { margin: 0 0 8px; }
+header p { margin: 0; color: #dce6f5; }
+main { width: min(900px, 92%); margin: 28px auto; }
+section { background: white; padding: 24px; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 3px 14px #172b4d12; }
+h2 { margin-top: 0; color: #172b4d; }
+button { border: 0; border-radius: 7px; padding: 12px 20px; background: #1769aa; color: white; font-size: 16px; cursor: pointer; }
+button:hover { background: #105487; }
+#summary { margin-bottom: 10px; }
+#test-results { padding-left: 22px; line-height: 1.8; }
+.passed { color: #16803c; }
+.failed { color: #c62828; }
+.topics { line-height: 1.9; }
+footer { text-align: center; padding: 20px; color: #657080; }
