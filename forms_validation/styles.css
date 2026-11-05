@@ -1,0 +1,151 @@
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #202938;
+  background: linear-gradient(135deg, #e8efff, #f7f8fc);
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 16px;
+}
+
+.form-card {
+  width: 100%;
+  max-width: 480px;
+  padding: 32px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(25, 45, 80, 0.12);
+}
+
+.form-header {
+  margin-bottom: 26px;
+  text-align: center;
+}
+
+.form-header h1 {
+  margin-bottom: 8px;
+  font-size: 28px;
+}
+
+.form-header p,
+.hint {
+  color: #687386;
+  font-size: 14px;
+}
+
+.field {
+  margin-bottom: 18px;
+}
+
+.field label,
+.password-group legend {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+
+.field input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #cbd3df;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field input:focus {
+  border-color: #3867d6;
+  box-shadow: 0 0 0 3px rgba(56, 103, 214, 0.14);
+}
+
+.password-group {
+  min-width: 0;
+  margin: 0 0 18px;
+  padding: 16px;
+  border: 1px solid #e0e5ed;
+  border-radius: 10px;
+}
+
+.password-group legend {
+  padding: 0 6px;
+}
+
+.hint,
+.error {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.error {
+  color: #c62828;
+}
+
+.success {
+  margin-top: 14px;
+  color: #187443;
+  text-align: center;
+  font-weight: 600;
+}
+
+input.invalid {
+  border-color: #c62828;
+  background: #fff8f8;
+}
+
+input.valid {
+  border-color: #218653;
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 6px 0 2px;
+}
+
+.checkbox-field input {
+  width: 17px;
+  height: 17px;
+  margin-top: 3px;
+}
+
+.checkbox-field label {
+  font-size: 14px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 20px;
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  background: #315fc7;
+  font-weight: 700;
+}
+
+button[type="submit"]:hover {
+  background: #244da9;
+}
+
+button[type="submit"]:focus-visible {
+  outline: 3px solid #9bb8ff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .form-card {
+    padding: 24px 18px;
+  }
+
+  .form-header h1 {
+    font-size: 24px;
+  }
+}

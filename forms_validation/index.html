@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Форма регистрации</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <section class="form-card" aria-labelledby="form-title">
+      <header class="form-header">
+        <h1 id="form-title">Создание аккаунта</h1>
+        <p>Заполните форму, чтобы зарегистрироваться.</p>
+      </header>
+
+      <form id="registration-form" novalidate>
+        <div class="field">
+          <label for="name">Имя</label>
+          <input id="name" name="name" type="text" autocomplete="name"
+                 required minlength="2" maxlength="40"
+                 aria-describedby="name-error">
+          <small class="error" id="name-error" aria-live="polite"></small>
+        </div>
+
+        <div class="field">
+          <label for="email">Электронная почта</label>
+          <input id="email" name="email" type="email" autocomplete="email"
+                 required aria-describedby="email-error">
+          <small class="error" id="email-error" aria-live="polite"></small>
+        </div>
+
+        <div class="field">
+          <label for="phone">Телефон</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel"
+                 placeholder="+7 900 000-00-00"
+                 pattern="^\+?[0-9\s()\-]{10,20}$"
+                 aria-describedby="phone-error">
+          <small class="error" id="phone-error" aria-live="polite"></small>
+        </div>
+
+        <fieldset class="password-group">
+          <legend>Пароль</legend>
+          <div class="field">
+            <label for="password">Пароль</label>
+            <input id="password" name="password" type="password"
+                   autocomplete="new-password" required minlength="8"
+                   aria-describedby="password-hint password-error">
+            <small class="hint" id="password-hint">Минимум 8 символов, хотя бы одна буква и одна цифра.</small>
+            <small class="error" id="password-error" aria-live="polite"></small>
+          </div>
+          <div class="field">
+            <label for="confirm-password">Повторите пароль</label>
+            <input id="confirm-password" name="confirm-password" type="password"
+                   autocomplete="new-password" required
+                   aria-describedby="confirm-password-error">
+            <small class="error" id="confirm-password-error" aria-live="polite"></small>
+          </div>
+        </fieldset>
+
+        <div class="checkbox-field">
+          <input id="agreement" name="agreement" type="checkbox" required
+                 aria-describedby="agreement-error">
+          <label for="agreement">Я согласен с условиями использования</label>
+        </div>
+        <small class="error" id="agreement-error" aria-live="polite"></small>
+
+        <button type="submit">Зарегистрироваться</button>
+        <p class="success" id="success-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
