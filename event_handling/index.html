@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ПР №12 — JavaScript: обработка событий</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="events-tasks.js" defer></script>
+  <script src="events-tests.js" defer></script>
+</head>
+<body>
+  <header class="page-header">
+    <h1>Практическая работа №12</h1>
+    <p>JavaScript: обработка событий</p>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>1. Базовые события мыши</h2>
+      <button id="basic-btn" type="button">Нажми меня</button>
+      <pre id="basic-output" class="output">Здесь появится информация о клике.</pre>
+      <div id="color-box" class="color-box">Наведи курсор и двигай мышью</div>
+      <p id="mouse-output" class="output">Координаты мыши появятся здесь.</p>
+    </section>
+
+    <section class="panel">
+      <h2>2. События клавиатуры</h2>
+      <label for="key-input">Нажми клавиши в этом поле:</label>
+      <input id="key-input" type="text" placeholder="Попробуй Ctrl+S, Alt+C или Shift+A">
+      <pre id="key-output" class="output">Информация о клавишах появится здесь.</pre>
+    </section>
+
+    <section class="panel">
+      <h2>3. Делегирование событий</h2>
+      <div class="button-row">
+        <button id="add-item-btn" type="button">Добавить элемент</button>
+      </div>
+      <ul id="item-list">
+        <li class="item" data-id="1"><span>Элемент 1</span><button class="delete" type="button">Удалить</button></li>
+        <li class="item" data-id="2"><span>Элемент 2</span><button class="delete" type="button">Удалить</button></li>
+        <li class="item" data-id="3"><span>Элемент 3</span><button class="delete" type="button">Удалить</button></li>
+      </ul>
+      <p id="delegation-output" class="output">Выбери элементы списка.</p>
+    </section>
+
+    <section class="panel">
+      <h2>4. Предотвращение стандартного поведения</h2>
+      <a id="prevent-link" href="https://example.com">Проверить обработку ссылки</a>
+      <form id="prevent-form">
+        <label for="form-name">Введите имя:</label>
+        <input id="form-name" name="name" type="text" placeholder="Ваше имя">
+        <button type="submit">Отправить форму</button>
+      </form>
+      <p id="prevention-output" class="output">Результат появится здесь.</p>
+    </section>
+
+    <section class="panel">
+      <h2>5. Кастомные события</h2>
+      <div class="button-row">
+        <button id="trigger-custom" type="button">Запустить кастомное событие</button>
+        <button id="multiple-listeners" type="button">Проверить 3 обработчика</button>
+      </div>
+      <p id="custom-output" class="output">Кастомное событие ещё не запускалось.</p>
+    </section>
+
+    <section class="panel">
+      <h2>6. События загрузки и ошибок</h2>
+      <div class="button-row">
+        <button id="load-image" type="button">Загрузить изображение</button>
+        <button id="load-error" type="button">Сымитировать ошибку</button>
+      </div>
+      <p id="loading-output" class="output">Статус загрузки появится здесь.</p>
+      <div id="image-container"></div>
+    </section>
+
+    <section class="panel">
+      <h2>7. Таймеры, debounce и throttle</h2>
+      <p id="timer-output" class="timer">0 сек.</p>
+      <div class="button-row">
+        <button id="start-timer" type="button">Старт</button>
+        <button id="stop-timer" type="button">Остановить и сбросить</button>
+      </div>
+      <div class="button-row">
+        <button id="debounce-btn" type="button">Тест debounce</button>
+        <button id="throttle-btn" type="button">Тест throttle</button>
+      </div>
+      <p id="async-output" class="output">Результаты асинхронных тестов появятся здесь.</p>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <p>ПР №12. Все задания выполняются в браузере с помощью JavaScript.</p>
+  </footer>
+</body>
+</html>
