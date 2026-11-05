@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Layout — Практическая работа №4</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Flexbox в действии</h1>
+    </header>
+
+    <main class="main">
+        <nav class="navigation">
+            <h2>Навигация</h2>
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">О проекте</a></li>
+                <li><a href="#services">Возможности</a></li>
+                <li><a href="#portfolio">Примеры</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <section class="content" id="home">
+            <h2 class="content-title">Основной контент</h2>
+
+            <article class="card" id="about">
+                <div>
+                    <h3>Карточка 1</h3>
+                    <p>Flexbox помогает размещать элементы в строку или колонку и управлять свободным пространством.</p>
+                </div>
+                <a href="#services">Подробнее</a>
+            </article>
+
+            <article class="card" id="services">
+                <div>
+                    <h3>Карточка 2</h3>
+                    <p>Свойства выравнивания позволяют располагать содержимое по основной и поперечной осям.</p>
+                </div>
+                <a href="#portfolio">Подробнее</a>
+            </article>
+
+            <article class="card" id="portfolio">
+                <div>
+                    <h3>Карточка 3</h3>
+                    <p>Перенос элементов и изменение их порядка помогают создавать гибкие макеты.</p>
+                </div>
+                <a href="#contacts">Подробнее</a>
+            </article>
+        </section>
+
+        <aside class="sidebar">
+            <h2>Боковая панель</h2>
+            <p>Здесь размещается дополнительная информация: полезные ссылки, заметки и краткие сведения о проекте.</p>
+        </aside>
+    </main>
+
+    <footer class="footer" id="contacts">
+        <h2>Дополнительные разделы</h2>
+        <div class="footer-content">
+            <div class="footer-section">Раздел 1 — Информация</div>
+            <div class="footer-section">Раздел 2 — Материалы</div>
+            <div class="footer-section">Раздел 3 — Контакты</div>
+        </div>
+    </footer>
+</body>
+</html>
