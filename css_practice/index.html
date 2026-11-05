@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS: Селекторы и каскад</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <h1 id="site-title">Изучаем CSS</h1>
+        <p class="subtitle">Практика с селекторами и каскадом</p>
+    </header>
+
+    <main class="content">
+        <article class="post featured-post">
+            <h2>Основы CSS</h2>
+            <p class="intro">CSS — это язык стилей для веб-страниц.</p>
+            <p>Он позволяет управлять внешним видом элементов: цветом, размером текста,
+               отступами и расположением блоков.</p>
+        </article>
+
+        <section class="examples">
+            <div class="card">
+                <h3>Селекторы</h3>
+                <ul>
+                    <li class="important">По тегу</li>
+                    <li>По классу</li>
+                    <li class="important">По ID</li>
+                    <li>Комбинаторы</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Каскад и наследование</h3>
+                <p>Каскад определяет, какое CSS-правило будет применено к элементу.</p>
+                <p>Наследование позволяет некоторым свойствам переходить от родителя
+                   к дочерним элементам.</p>
+            </div>
+        </section>
+
+        <section class="post">
+            <h2>Практический пример</h2>
+            <p>Наведите курсор на пункты списка, чтобы увидеть работу псевдокласса hover.</p>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>Практическая работа №3 — CSS</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,159 @@
+/* Базовые стили страницы */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+    background-color: #f5f7fa;
+}
+
+/* Селектор по тегу */
+h1 {
+    color: darkblue;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+/* Селектор по классу */
+.main-header {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-bottom: 2px solid #ccc;
+    text-align: center;
+}
+
+.subtitle {
+    font-style: italic;
+    color: #666;
+}
+
+/* Селектор по ID */
+#site-title {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Комбинированные селекторы */
+.content > article {
+    background-color: white;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.post p {
+    margin-bottom: 10px;
+}
+
+h2 + p {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Селектор класса карточки */
+.card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: white;
+    margin: 10px 0;
+}
+
+/* Демонстрация каскада и специфичности */
+p {
+    color: black;
+    font-size: 16px;
+}
+
+.post p {
+    color: darkgreen;
+}
+
+.featured-post p {
+    color: darkred;
+}
+
+.featured-post .intro {
+    color: purple;
+    font-size: 18px;
+}
+
+/* Демонстрация специфичности и !important */
+.important {
+    color: red;
+    font-weight: bold;
+}
+
+li.important {
+    color: darkred;
+    text-decoration: underline;
+}
+
+ul li {
+    color: blue;
+}
+
+/* !important переопределяет обычные правила */
+.important {
+    color: orange !important;
+}
+
+/* Наследуемые свойства */
+.examples {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+/* Явное наследование свойства, которое обычно не наследуется */
+.card {
+    border-color: #3498db;
+    padding: inherit;
+}
+
+/* Псевдоклассы */
+li:hover {
+    background-color: yellow;
+    cursor: pointer;
+}
+
+li:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.main-header:hover {
+    background-color: #e9e9e9;
+    transition: background-color 0.3s;
+}
+
+/* Псевдоэлементы */
+p::first-line {
+    font-weight: bold;
+}
+
+.post h2::after {
+    content: " ★";
+    color: goldenrod;
+}
+
+.card::before {
+    content: "➜ ";
+    color: green;
+}
+
+/* Подвал */
+.main-footer {
+    margin-top: 30px;
+    padding: 20px;
+    text-align: center;
+    background-color: #e8edf3;
+    border-top: 2px solid #ccc;
+}
+
+/* Небольшая адаптация для узких экранов */
+@media (max-width: 600px) {
+    .main-header,
+    .content,
+    .main-footer {
+        padding: 12px;
+    }
+}
