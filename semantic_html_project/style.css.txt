@@ -1,0 +1,188 @@
+
+/* ОСНОВНЫЕ НАСТРОЙКИ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0f172a;
+    color: #f1f5f9;
+    line-height: 1.6;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* ШАПКА */
+header {
+    background-color: #1e293b;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #38bdf8;
+}
+
+header h1 {
+    font-size: 28px;
+    color: #38bdf8;
+}
+
+/* НАВИГАЦИЯ */
+nav {
+    background-color: #1e293b;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+/* ОСНОВНОЙ КОНТЕНТ */
+main {
+    width: 100%;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+section {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 22px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+h2 {
+    color: #38bdf8;
+    margin-bottom: 18px;
+    font-size: 22px;
+}
+
+h3 {
+    color: white;
+    margin-bottom: 12px;
+}
+
+/* НОВОСТИ И КАРТОЧКИ */
+article,
+.car-card,
+.review-card {
+    background-color: #27364d;
+    border-left: 3px solid #0ea5e9;
+    border-radius: 7px;
+    padding: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+}
+
+/* ФОТОГРАФИИ */
+img,
+.car-card img,
+.review-image {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 220px !important;
+    object-fit: cover !important;
+    border-radius: 7px;
+    margin: 10px 0;
+}
+
+/* ТЕКСТ */
+p {
+    margin-bottom: 12px;
+}
+
+time {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+/* ССЫЛКИ */
+a {
+    color: #38bdf8;
+}
+
+/* ФОРМЫ */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+input,
+textarea,
+button {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #475569;
+    font-size: 15px;
+}
+
+input,
+textarea {
+    background-color: #0f172a;
+    color: white;
+}
+
+button {
+    background-color: #0284c7;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+button:hover {
+    background-color: #0369a1;
+}
+
+/* ПОДВАЛ */
+footer {
+    background-color: #1e293b;
+    color: #94a3b8;
+    text-align: center;
+    padding: 25px;
+    margin-top: 30px;
+}
+
+/* АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ */
+@media (max-width: 700px) {
+    main {
+        padding: 0 10px;
+    }
+
+    section {
+        padding: 12px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
+
+    img {
+        height: 180px !important;
+    }
+}

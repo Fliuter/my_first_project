@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автомобильный мир</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: #f1f5f9;
+    line-height: 1.6;
+}
+
+header {
+    background: #1e293b;
+    text-align: center;
+    padding: 30px 15px;
+    border-bottom: 2px solid #38bdf8;
+}
+
+header h1 {
+    color: #38bdf8;
+    font-size: 32px;
+}
+
+header p {
+    color: #cbd5e1;
+}
+
+nav {
+    background: #172438;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+main {
+    max-width: 1150px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+section {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 25px;
+}
+
+h2 {
+    color: #38bdf8;
+    margin-bottom: 18px;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+button {
+    background: #0284c7;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 11px 17px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #0369a1;
+}
+
+.cars-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.car-card {
+    background: #27364d;
+    border: 1px solid #334155;
+    border-radius: 9px;
+    padding: 15px;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.car-card:hover {
+    transform: translateY(-4px);
+    border-color: #38bdf8;
+}
+
+.car-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-radius: 7px;
+    margin: 12px 0;
+}
+
+.car-year {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.search-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.search-panel input,
+.search-panel select,
+form input {
+    flex: 1;
+    min-width: 180px;
+    padding: 12px;
+    border-radius: 7px;
+    border: 1px solid #475569;
+    background: #0f172a;
+    color: white;
+    font-size: 15px;
+}
+
+#result-count {
+    color: #94a3b8;
+    margin-bottom: 15px;
+}
+
+#no-results {
+    display: none;
+    text-align: center;
+    color: #f87171;
+    padding: 25px;
+}
+
+.detail-page {
+    display: none;
+}
+
+.detail-page.active {
+    display: block;
+}
+
+.detail-image {
+    width: 100%;
+    max-height: 430px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.specs {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.specs td {
+    padding: 12px;
+    border-bottom: 1px solid #475569;
+}
+
+.specs td:first-child {
+    color: #38bdf8;
+    width: 45%;
+}
+
+.back-button {
+    margin-bottom: 20px;
+    background: #475569;
+}
+
+.back-button:hover {
+    background: #64748b;
+}
+
+.info-card {
+    background: #27364d;
+    padding: 16px;
+    border-left: 3px solid #0ea5e9;
+    border-radius: 7px;
+    margin-bottom: 14px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+footer {
+    background: #1e293b;
+    color: #94a3b8;
+    text-align: center;
+    padding: 25px;
+    margin-top: 30px;
+}
+
+.photo-source {
+    font-size: 12px;
+}
+
+.photo-source a {
+    color: #38bdf8;
+}
+
+#subscribe-message {
+    color: #4ade80;
+    margin-top: 10px;
+}
+
+@media (max-width: 700px) {
+    .cars-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    section {
+        padding: 16px;
+    }
+
+    .car-card img {
+        height: 200px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Автомобильный мир</h1>
+    <p>Новости, обзоры, характеристики и интересные автомобили</p>
+</header>
+
+<nav>
+    <a href="#" onclick="showHome()">Главная</a>
+    <a href="#news" onclick="showHome()">Новости</a>
+    <a href="#catalog" onclick="showHome()">Каталог</a>
+    <a href="#events" onclick="showHome()">Мероприятия</a>
+    <a href="#contacts" onclick="showHome()">Подписка</a>
+</nav>
+
+<main>
+
+<!-- ГЛАВНАЯ СТРАНИЦА -->
+
+<div id="home-page">
+
+<section>
+    <h2>Добро пожаловать в автомобильный мир!</h2>
+    <p>
+        Автомобильный мир — информационный сайт для любителей автомобилей.
+        Здесь можно изучать характеристики популярных моделей,
+        читать обзоры и узнавать автомобильные новости.
+    </p>
+</section>
+
+<section id="news">
+    <h2>Последние новости</h2>
+
+    <article class="info-card">
+        <h3>Новые технологии в автомобилях</h3>
+        <p>
+            Современные автомобили оснащаются электронными помощниками,
+            системами безопасности и мультимедийными комплексами.
+        </p>
+        <small>5 ноября 2026 года</small>
+    </article>
+
+    <article class="info-card">
+        <h3>Развитие автомобильной индустрии</h3>
+        <p>
+            Производители продолжают совершенствовать двигатели,
+            трансмиссии и системы управления автомобилями.
+        </p>
+        <small>5 ноября 2026 года</small>
+    </article>
+</section>
+
+<section id="catalog">
+    <h2>Каталог автомобилей</h2>
+
+    <div class="search-panel">
+        <input type="text" id="search"
+               placeholder="Введите название автомобиля...">
+
+        <select id="brand-filter">
+            <option value="all">Все марки</option>
+            <option value="honda">Honda</option>
+            <option value="bmw">BMW</option>
+            <option value="mercedes">Mercedes-Benz</option>
+            <option value="toyota">Toyota</option>
+        </select>
+    </div>
+
+    <p id="result-count">Найдено автомобилей: 4</p>
+
+    <div class="cars-grid" id="cars-grid">
+
+        <article class="car-card" data-brand="honda">
+            <h3>Honda Accord VII</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/2006-%2707_Honda_Accord_Sedan.JPG"
+                 alt="Honda Accord VII">
+            <p class="car-year">2006–2007 год</p>
+            <p>Японский седан с динамичным характером и комфортным салоном.</p>
+            <button onclick="showDetail('honda')">Подробнее</button>
+            <p class="photo-source">
+                <a href="https://commons.wikimedia.org/wiki/File:2006-%2707_Honda_Accord_Sedan.JPG" target="_blank">Источник фото</a>
+            </p>
+        </article>
+
+        <article class="car-card" data-brand="bmw">
+            <h3>BMW 5 Series E60</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/BMW-5series-E60.jpg"
+                 alt="BMW E60">
+            <p class="car-year">2004–2007 год</p>
+            <p>Немецкий бизнес-седан со спортивным характером.</p>
+            <button onclick="showDetail('bmw')">Подробнее</button>
+            <p class="photo-source">
+                <a href="https://commons.wikimedia.org/wiki/File:BMW-5series-E60.jpg" target="_blank">Источник фото</a>
+            </p>
+        </article>
+
+        <article class="car-card" data-brand="mercedes">
+            <h3>Mercedes-Benz W211</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/%2706_Mercedes-Benz_E-Class_Sedan.jpg"
+                 alt="Mercedes W211">
+            <p class="car-year">2006 год</p>
+            <p>Комфортный немецкий седан бизнес-класса.</p>
+            <button onclick="showDetail('mercedes')">Подробнее</button>
+            <p class="photo-source">
+                <a href="https://commons.wikimedia.org/wiki/File:%2706_Mercedes-Benz_E-Class_Sedan.jpg" target="_blank">Источник фото</a>
+            </p>
+        </article>
+
+        <article class="car-card" data-brand="toyota">
+            <h3>Toyota Camry XV40</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/MHV_Toyota_Camry_XV40_2007_01.jpg"
+                 alt="Toyota Camry XV40">
+            <p class="car-year">2007 год</p>
+            <p>Практичный японский седан с просторным салоном.</p>
+            <button onclick="showDetail('toyota')">Подробнее</button>
+            <p class="photo-source">
+                <a href="https://commons.wikimedia.org/wiki/File:MHV_Toyota_Camry_XV40_2007_01.jpg" target="_blank">Источник фото</a>
+            </p>
+        </article>
+
+    </div>
+
+    <p id="no-results">Автомобили не найдены. Измените запрос.</p>
+</section>
+
+<section id="events">
+    <h2>Автомобильные мероприятия</h2>
+
+    <article class="info-card">
+        <h3>Автомобильные выставки</h3>
+        <p>Знакомство с новыми моделями и автомобильными технологиями.</p>
+    </article>
+
+    <article class="info-card">
+        <h3>Встречи автолюбителей</h3>
+        <p>Общение владельцев различных марок автомобилей.</p>
+    </article>
+</section>
+
+<section>
+    <h2>Советы автомобилистам</h2>
+
+    <article class="info-card">
+        <h3>Техническое обслуживание</h3>
+        <p>Регулярно проверяйте масло, давление в шинах и тормозную систему.</p>
+    </article>
+
+    <article class="info-card">
+        <h3>Безопасность на дороге</h3>
+        <p>Соблюдайте скоростной режим и правила дорожного движения.</p>
+    </article>
+</section>
+
+<section id="contacts">
+    <h2>Подписка на новости</h2>
+    <p>Оставьте электронную почту, чтобы получать обновления.</p>
+
+    <form id="subscribe-form">
+        <input type="email" id="email"
+               placeholder="Введите электронную почту" required>
+        <button type="submit">Подписаться</button>
+    </form>
+
+    <p id="subscribe-message"></p>
+</section>
+
+</div>
+
+<!-- ПОДРОБНЫЕ ОБЗОРЫ АВТОМОБИЛЕЙ -->
+
+<div id="detail-honda" class="detail-page">
+    <section>
+        <button class="back-button" onclick="showHome()">← Назад в каталог</button>
+        <h2>Honda Accord VII</h2>
+        <img class="detail-image"
+             src="https://upload.wikimedia.org/wikipedia/commons/8/87/2006-%2707_Honda_Accord_Sedan.JPG"
+             alt="Honda Accord VII">
+        <p>
+            Honda Accord VII — седан японского производства.
+            Модель известна хорошей управляемостью, атмосферными
+            бензиновыми двигателями и комфортным салоном.
+        </p>
+
+        <h3>Технические характеристики</h3>
+        <table class="specs">
+            <tr><td>Поколение</td><td>Седьмое</td></tr>
+            <tr><td>Годы выпуска</td><td>2002–2008</td></tr>
+            <tr><td>Двигатель</td><td>2.0 / 2.4 л, бензин</td></tr>
+            <tr><td>Мощность</td><td>155–190 л. с.</td></tr>
+            <tr><td>Коробка передач</td><td>Механическая / автоматическая</td></tr>
+            <tr><td>Привод</td><td>Передний</td></tr>
+            <tr><td>Кузов</td><td>Седан</td></tr>
+        </table>
+
+        <h3>Особенности модели</h3>
+        <p>
+            Accord VII сочетает динамику, комфорт и практичность.
+            Двигатель 2.4 особенно интересен водителям,
+            которым важна хорошая динамика.
+        </p>
+    </section>
+</div>
+
+<div id="detail-bmw" class="detail-page">
+    <section>
+        <button class="back-button" onclick="showHome()">← Назад в каталог</button>
+        <h2>BMW 5 Series E60</h2>
+        <img class="detail-image"
+             src="https://upload.wikimedia.org/wikipedia/commons/c/c0/BMW-5series-E60.jpg"
+             alt="BMW E60">
+        <p>
+            BMW E60 — пятое поколение BMW 5 Series.
+            Автомобиль получил выразительный дизайн,
+            задний привод и широкий выбор двигателей.
+        </p>
+
+        <h3>Технические характеристики</h3>
+        <table class="specs">
+            <tr><td>Поколение</td><td>E60</td></tr>
+            <tr><td>Годы выпуска</td><td>2003–2010</td></tr>
+            <tr><td>Двигатели</td><td>Бензиновые и дизельные</td></tr>
+            <tr><td>Мощность</td><td>Зависит от версии</td></tr>
+            <tr><td>Коробка передач</td><td>Механическая / автоматическая</td></tr>
+            <tr><td>Привод</td><td>Задний / полный</td></tr>
+            <tr><td>Кузов</td><td>Седан</td></tr>
+        </table>
+
+        <h3>Особенности модели</h3>
+        <p>
+            Модель отличается хорошей управляемостью,
+            комфортом на трассе и большим выбором комплектаций.
+        </p>
+    </section>
+</div>
+
+<div id="detail-mercedes" class="detail-page">
+    <section>
+        <button class="back-button" onclick="showHome()">← Назад в каталог</button>
+        <h2>Mercedes-Benz E-Class W211</h2>
+        <img class="detail-image"
+             src="https://upload.wikimedia.org/wikipedia/commons/a/ad/%2706_Mercedes-Benz_E-Class_Sedan.jpg"
+             alt="Mercedes W211">
+        <p>
+            Mercedes-Benz W211 — представитель E-Class.
+            Автомобиль ориентирован на комфорт, безопасность
+            и спокойное движение на дальние расстояния.
+        </p>
+
+        <h3>Технические характеристики</h3>
+        <table class="specs">
+            <tr><td>Поколение</td><td>W211</td></tr>
+            <tr><td>Годы выпуска</td><td>2002–2009</td></tr>
+            <tr><td>Двигатели</td><td>Бензиновые и дизельные</td></tr>
+            <tr><td>Мощность</td><td>Зависит от версии</td></tr>
+            <tr><td>Коробка передач</td><td>Механическая / автоматическая</td></tr>
+            <tr><td>Привод</td><td>Задний / полный</td></tr>
+            <tr><td>Кузов</td><td>Седан / универсал</td></tr>
+        </table>
+
+        <h3>Особенности модели</h3>
+        <p>
+            W211 предлагает просторный салон, хорошую шумоизоляцию
+            и высокий уровень комфорта.
+        </p>
+    </section>
+</div>
+
+<div id="detail-toyota" class="detail-page">
+    <section>
+        <button class="back-button" onclick="showHome()">← Назад в каталог</button>
+        <h2>Toyota Camry XV40</h2>
+        <img class="detail-image"
+             src="https://upload.wikimedia.org/wikipedia/commons/a/a8/MHV_Toyota_Camry_XV40_2007_01.jpg"
+             alt="Toyota Camry XV40">
+        <p>
+            Toyota Camry XV40 — популярный седан бизнес-класса.
+            Модель получила просторный салон, комфортную подвеску
+            и несколько вариантов бензиновых двигателей.
+        </p>
+
+        <h3>Технические характеристики</h3>
+        <table class="specs">
+            <tr><td>Поколение</td><td>XV40</td></tr>
+            <tr><td>Годы выпуска</td><td>2006–2011</td></tr>
+            <tr><td>Двигатели</td><td>2.4 / 3.5 л, бензин</td></tr>
+            <tr><td>Мощность</td><td>167 / 277 л. с.</td></tr>
+            <tr><td>Коробка передач</td><td>Механическая / автоматическая</td></tr>
+            <tr><td>Привод</td><td>Передний</td></tr>
+            <tr><td>Кузов</td><td>Седан</td></tr>
+        </table>
+
+        <h3>Особенности модели</h3>
+        <p>
+            Camry XV40 известна комфортной подвеской,
+            просторным салоном и удобством в повседневной эксплуатации.
+        </p>
+    </section>
+</div>
+
+</main>
+
+<footer>
+    <p>© 2026 Автомобильный мир</p>
+    <p>Информационный автомобильный сайт</p>
+</footer>
+
+<script>
+// ПЕРЕКЛЮЧЕНИЕ СТРАНИЦ
+
+function showDetail(car) {
+    document.getElementById("home-page").style.display = "none";
+
+    document.querySelectorAll(".detail-page").forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("detail-" + car).classList.add("active");
+
+    window.scrollTo(0, 0);
+}
+
+function showHome() {
+    document.getElementById("home-page").style.display = "block";
+
+    document.querySelectorAll(".detail-page").forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    window.scrollTo(0, 0);
+}
+
+// ПОИСК И ФИЛЬТРАЦИЯ
+
+const searchInput = document.getElementById("search");
+const brandFilter = document.getElementById("brand-filter");
+const carCards = document.querySelectorAll(".car-card");
+
+function filterCars() {
+    const searchText = searchInput.value.toLowerCase().trim();
+    const selectedBrand = brandFilter.value;
+
+    let count = 0;
+
+    carCards.forEach(function(card) {
+        const name = card.textContent.toLowerCase();
+        const brand = card.dataset.brand;
+
+        const matchesSearch = name.includes(searchText);
+        const matchesBrand =
+            selectedBrand === "all" || brand === selectedBrand;
+
+        if (matchesSearch && matchesBrand) {
+            card.style.display = "block";
+            count++;
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    document.getElementById("result-count").textContent =
+        "Найдено автомобилей: " + count;
+
+    document.getElementById("no-results").style.display =
+        count === 0 ? "block" : "none";
+}
+
+searchInput.addEventListener("input", filterCars);
+brandFilter.addEventListener("change", filterCars);
+
+// ДЕМОНСТРАЦИОННАЯ ПОДПИСКА
+
+document.getElementById("subscribe-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+
+    document.getElementById("subscribe-message").textContent =
+        "Спасибо! Заявка для " + email + " принята.";
+
+    this.reset();
+});
+</script>
+
+</body>
+</html>
